@@ -56,6 +56,8 @@ ul
                         a(href='#') List Methods
                     li.expand-methods
                         a(href='#') Expand Methods
+            - if (endpoint.Description)
+              p.description=endpoint.Description
             - if (endpoint.methods.length)
             ul.methods.hidden
                 - each method in endpoint.methods

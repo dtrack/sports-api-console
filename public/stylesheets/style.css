@@ -438,6 +438,12 @@ li {
   border: 0;
 }
 
+.endpoint > .description {
+  padding: 5px 0 10px 30px;
+  font-size: .9em;
+  font-style: italic;
+}
+
 .methods {
   display: none;
 }

@@ -38,5 +38,14 @@
         "protocol": "http",
         "baseURL": "requestb.in",
         "publicPath": "/"
+    },
+    "sports-api": {
+        "name": "Sports API",
+        "protocol": "http",
+        "baseURL": "127.0.0.1:3001",
+        "publicPath": "/1",
+        "headers" : {},
+        "auth": "",
+        "keyParam": "key"
     }
 }

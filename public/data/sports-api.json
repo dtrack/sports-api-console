@@ -1,0 +1,142 @@
+{
+    "endpoints": [
+        {
+            "name":"Sports",
+            "Description": "Methods relative to the Sport object. Sport ids are prefixed with \"sp\" followed by 10 hexadecimal characters",
+            "methods": [
+                {
+                    "MethodName": "Get all",
+                    "Synopsis":"Returns all available Sports.",
+                    "HTTPMethod": "GET",
+                    "URI": "/sports",
+                    "RequiresOAuth":"Y",
+                    "parameters": []
+                },
+                {
+                    "MethodName": "Get",
+                    "Synopsis":"Returns the Sport corresponding to the id",
+                    "HTTPMethod": "GET",
+                    "URI": "/sports/:id",
+                    "RequiresOAuth":"Y",
+                    "parameters": [
+                        {
+                            "Name": ":id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Id of the Sport"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Create",
+                    "Synopsis":"Create a new Sport",
+                    "HTTPMethod": "POST",
+                    "URI": "/sports",
+                    "RequiresOAuth":"Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Name of the Sport"
+                        },
+                        {
+                            "Name": "Description",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "A description of the Sport."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"Competitions",
+            "Description": "Methods relative to the Competition object. Competition ids are prefixed with \"cp\" followed by 10 hexadecimal characters",
+            "methods": [
+                {
+                    "MethodName": "Get All",
+                    "Synopsis": "Returns a list of all available Competitions",
+                    "HTTPMethod": "GET",
+                    "URI": "/competitions",
+                    "RequiresOAuth":"Y",
+                    "parameters": []
+                },
+                {
+                    "MethodName": "Get By Sport",
+                    "Synopsis": "Returns a list of Competitions by sport id",
+                    "HTTPMethod": "GET",
+                    "URI": "/competitions/by-sport/:sportId",
+                    "RequiresOAuth":"Y",
+                    "parameters": [
+                        {
+                            "Name": ":sportId",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Id of the Sport"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Returns the Competition with the matching id",
+                    "HTTPMethod": "GET",
+                    "URI": "/competitions/:id",
+                    "RequiresOAuth":"Y",
+                    "parameters": [
+                        {
+                            "Name": ":id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Id of the Competition"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Create",
+                    "Synopsis": "Create a new Competition",
+                    "HTTPMethod": "POST",
+                    "URI": "/competitions",
+                    "RequiresOAuth":"Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Name of the Competition"
+                        },
+                        {
+                            "Name": "sportId",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Sport id of the Competition"
+                        },
+                        {
+                            "Name": "countryId",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Country id of the Competition"
+                        },
+                        {
+                            "Name": "description",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "A description of the Competition"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+
+}
