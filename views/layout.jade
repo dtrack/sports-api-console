@@ -8,6 +8,11 @@ html
         title=title
         link(rel='stylesheet', href='#{rootPath}/stylesheets/prettify.css')
         link(rel='stylesheet', href='#{rootPath}/stylesheets/style.css')
+        script
+            App= {};
+            App.Settings = {
+                rootPath: '#{rootPath}'
+            };
 
     body
         !{body}
