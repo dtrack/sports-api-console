@@ -1,6 +1,7 @@
 {
     "title" : "I/O Docs - http://github.com/mashery/iodocs",
     "address": "0.0.0.0",
+    "rootPath": "sports-api",
     "port" : 3000,
     "debug" : false,
     "sessionSecret" : "12345",
