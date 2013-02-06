@@ -647,7 +647,7 @@ app.dynamicHelpers({
                     req.params.api = pathName;
                 }
             });
-        }       
+        }
         // If the cookie says we're authed for this particular API, set the session to authed as well
         if (req.params.api && req.session[req.params.api] && req.session[req.params.api]['authed']) {
             req.session['authed'] = true;
@@ -673,7 +673,7 @@ app.dynamicHelpers({
             return JSON.parse(data);
         }
     }
-})
+});
 
 
 //
@@ -681,7 +681,9 @@ app.dynamicHelpers({
 //
 app.get(config.rootPath + '/', function(req, res) {
     req.params.api='sports-api'; // req.params.api.replace(/\/$/,'');
-    res.render('api');
+    res.render('api', {
+        rootPath: config.rootPath
+    });
     // res.render('listAPIs', {
     //     title: config.title
     // });
@@ -705,7 +707,8 @@ app.all('/auth', oauth);
 // OAuth callback page, closes the window immediately after storing access token/secret
 app.get(config.rootPath + '/authSuccess/:api', oauthSuccess, function(req, res) {
     res.render('authSuccess', {
-        title: 'OAuth Successful'
+        title: 'OAuth Successful',
+        rootPath: config.rootPath
     });
 });
 
@@ -717,7 +720,9 @@ app.post(config.rootPath + '/upload', function(req, res) {
 // API shortname, all lowercase
 app.get(config.rootPath + '/:api([^\.]+)', function(req, res) {
     req.params.api=req.params.api.replace(/\/$/,'');
-    res.render('api');
+    res.render('api', {
+        rootPath: config.rootPath
+    });
 });
 
 // Only listen on $ node app.js
