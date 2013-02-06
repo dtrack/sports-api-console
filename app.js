@@ -679,7 +679,7 @@ app.dynamicHelpers({
 //
 // Routes
 //
-app.get(config.rootPath + '/', function(req, res) {
+app.get('/', function(req, res) {
     req.params.api='sports-api'; // req.params.api.replace(/\/$/,'');
     res.render('api', {
         rootPath: config.rootPath
@@ -690,7 +690,7 @@ app.get(config.rootPath + '/', function(req, res) {
 });
 
 // Process the API request
-app.post(config.rootPath + '/processReq', oauth, processRequest, function(req, res) {
+app.post('/processReq', oauth, processRequest, function(req, res) {
     var result = {
         headers: req.resultHeaders,
         response: req.result,
@@ -705,20 +705,20 @@ app.post(config.rootPath + '/processReq', oauth, processRequest, function(req, r
 app.all('/auth', oauth);
 
 // OAuth callback page, closes the window immediately after storing access token/secret
-app.get(config.rootPath + '/authSuccess/:api', oauthSuccess, function(req, res) {
+app.get('/authSuccess/:api', oauthSuccess, function(req, res) {
     res.render('authSuccess', {
         title: 'OAuth Successful',
         rootPath: config.rootPath
     });
 });
 
-app.post(config.rootPath + '/upload', function(req, res) {
+app.post('/upload', function(req, res) {
   console.log(req.body.user);
   res.redirect('back');
 });
 
 // API shortname, all lowercase
-app.get(config.rootPath + '/:api([^\.]+)', function(req, res) {
+app.get('/:api([^\.]+)', function(req, res) {
     req.params.api=req.params.api.replace(/\/$/,'');
     res.render('api', {
         rootPath: config.rootPath
